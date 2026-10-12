@@ -38,6 +38,8 @@ For each candidate, explain observed use, required behavior, runtime and API com
 
 When the project uses `clsx` or `classnames`, inspect the current DepLess repository's package mapping, item metadata, README, source, tests, and root registry definition. The source repository is `https://github.com/nhestrompia/depless`; a local checkout is also suitable. Match the observed import path and call behavior to the mapping. The `strings/classnames` item covers common conditional class joining, but its named export and `classnames/dedupe` behavior differ. Do not call it a drop-in replacement. If the mapping, source, or runtime support cannot be inspected, use `Review` rather than assuming compatibility.
 
+When the project uses Lodash debounce, read `mappings/lodash-debounce.json` and the `timing/debounce` item's contract and tests. Inspect the options and all uses of the returned function, including `cancel`, `flush`, `this`, and return values. The registry item covers trailing calls and pending cancel or flush behavior; `leading`, `maxWait`, and remembered results need review. If any required behavior is outside the mapping, use `Review` or `Keep`. Check for other Lodash APIs before suggesting that the whole package could be removed.
+
 For a compatible candidate, report the registry item and reviewed revision, the observed call sites, compatibility gaps, and the files the registry would add. Resolve `@lib/` against the consumer's shadcn configuration when available; otherwise state that the destination needs confirmation. Describe import changes and available checks before any edit. An ordinary audit never installs the item.
 
 ## Prevent mode
