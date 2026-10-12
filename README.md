@@ -20,7 +20,7 @@ For prevent mode, ask, "Use DepLess to evaluate whether this project should add 
 
 ## Registry source
 
-The first standalone capability is [classNames](registry/strings/classnames/README.md). Review its behavior and tests before copying its source into a project. The registry source has no runtime package dependencies.
+The registry currently has [classNames](registry/strings/classnames/README.md) and [debounce](registry/timing/debounce/README.md). Review each item's behavior and tests before copying source into a project. Registry source has no runtime package dependencies.
 
 The root `registry.json` lets the shadcn CLI install that source directly from this GitHub repository. After the registry commit is published, inspect and preview a pinned item before adding it:
 
