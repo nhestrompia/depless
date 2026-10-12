@@ -1,0 +1,12 @@
+{
+  "id": "timing/throttle",
+  "version": "1.0.0",
+  "description": "Trailing-only throttle with fixed windows, cancel, and flush",
+  "language": "typescript",
+  "dependencies": [],
+  "runtimes": ["browser", "node", "bun"],
+  "validatedRuntimes": ["node"],
+  "capabilities": ["throttle", "cancel", "flush"],
+  "license": "MIT",
+  "provenance": "Original DepLess implementation; no third-party source copied"
+}

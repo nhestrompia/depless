@@ -38,6 +38,24 @@
           "target": "~/licenses/depless-debounce-LICENSE"
         }
       ]
+    },
+    {
+      "name": "throttle",
+      "type": "registry:lib",
+      "title": "Throttle",
+      "description": "Trailing-only throttle with cancel and flush",
+      "files": [
+        {
+          "path": "registry/timing/throttle/index.ts",
+          "type": "registry:file",
+          "target": "@lib/throttle.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-throttle-LICENSE"
+        }
+      ]
     }
   ]
 }
