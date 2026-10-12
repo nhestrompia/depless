@@ -56,6 +56,24 @@
           "target": "~/licenses/depless-throttle-LICENSE"
         }
       ]
+    },
+    {
+      "name": "group-by",
+      "type": "registry:lib",
+      "title": "Group by",
+      "description": "Group iterable values by a Map key",
+      "files": [
+        {
+          "path": "registry/collections/group-by/index.ts",
+          "type": "registry:file",
+          "target": "@lib/group-by.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-group-by-LICENSE"
+        }
+      ]
     }
   ]
 }
