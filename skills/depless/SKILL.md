@@ -1,6 +1,6 @@
 ---
 name: depless
-description: Audit JavaScript and TypeScript project dependencies and configured targets without changing the project. Use when a developer asks which direct packages a project declares or whether dependencies may be unnecessary.
+description: Audit JavaScript and TypeScript dependencies and assess proposed new packages without changing the project. Use when a developer asks which direct packages a project declares, whether dependencies may be unnecessary, or whether to add a package.
 ---
 
 # DepLess
@@ -33,6 +33,14 @@ Apply these choices in order for the behavior the project actually needs:
 6. `Keep` when the dependency is justified or replacement cost or risk is excessive. Use `Review` when usage or compatibility evidence is insufficient to choose.
 
 For each candidate, explain observed use, required behavior, runtime and API compatibility, existing tests, expected maintenance cost, and confidence. Consider license and dependency graph impact where evidence exists; do not invent savings. Prioritize high-confidence opportunities in the summary. A focused request about one package should give the same evidence and decision in more detail.
+
+## Prevent mode
+
+When the developer asks whether to add a package, describe the requested capability and inspect the project before recommending installation. Apply the same choice order: existing behavior, compatible native API, an actual reviewed registry item, a bounded local implementation, then a justified package. If the project already has a function, compare its real behavior with the requested behavior before reusing it. Unknown targets or unresolved semantics lead to `Review`.
+
+For security-sensitive capabilities, follow [the security boundary](references/security.md). Do not suggest generated substitutes for password hashing, token verification, or similar behavior.
+
+Return the proposed choice, evidence, compatibility limits, and why a package is or is not justified. Do not edit files or run an installation in prevent mode. This skill advises the coding agent; it cannot universally intercept package-manager commands. If the developer requests an agent policy, provide [the dependency policy snippet](references/dependency-policy.md) for them to copy. Do not write it into `AGENTS.md` unless asked.
 
 Use this report shape:
 
