@@ -1,0 +1,12 @@
+{
+  "id": "strings/parse-boolean",
+  "version": "0.1.0",
+  "description": "Parse explicit true and false text without guessing",
+  "language": "typescript",
+  "dependencies": [],
+  "runtimes": ["browser", "node", "bun"],
+  "validatedRuntimes": ["node"],
+  "capabilities": ["parse boolean text"],
+  "license": "MIT",
+  "provenance": "Original DepLess example proposed for review; no third-party source copied"
+}

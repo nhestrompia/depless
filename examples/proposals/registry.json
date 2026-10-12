@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "depless-proposals",
+  "homepage": "https://github.com/nhestrompia/depless",
+  "items": [
+    {
+      "name": "parse-boolean",
+      "type": "registry:lib",
+      "title": "Parse boolean text",
+      "description": "Parse explicit true and false text",
+      "files": [
+        {
+          "path": "examples/proposals/parse-boolean/index.ts",
+          "type": "registry:file",
+          "target": "@lib/parse-boolean.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-parse-boolean-LICENSE"
+        }
+      ]
+    }
+  ]
+}

@@ -50,6 +50,10 @@ For a selected `clsx` or `classnames` migration, verify that all observed calls 
 
 If any replacement check fails or is inconclusive, follow the failure section of the workflow. Retain the original dependency, restore this attempt's changes when needed, and report the specific behavioral difference. Do not silently remove a package after failed verification.
 
+## Contribute mode
+
+When the developer asks to make a verified local utility reusable, follow [the contribution workflow](references/contribution.md). Prepare a reviewable proposal with rights and provenance checks, tests, metadata, runtime limits, and an install check. Do not publish it automatically.
+
 ## Prevent mode
 
 When the developer asks whether to add a package, describe the requested capability and inspect the project before recommending installation. Apply the same choice order: existing behavior, compatible native API, an actual reviewed registry item, a bounded local implementation, then a justified package. If the project already has a function, compare its real behavior with the requested behavior before reusing it. Unknown targets or unresolved semantics lead to `Review`.
