@@ -1,0 +1,17 @@
+{
+  "name": "depless-indirect-usage-project",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "optional-adapter": "1.0.0",
+    "unreferenced-example": "1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.0.0"
+  }
+}
