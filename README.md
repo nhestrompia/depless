@@ -18,7 +18,7 @@ Ask your agent, "Use DepLess to audit this project's dependencies." It will read
 
 For prevent mode, ask, "Use DepLess to evaluate whether this project should add `<package>` for `<capability>`." The agent will compare alternatives and return advice without installing anything.
 
-After reviewing an audit proposal, you can ask the agent to apply a specific replacement. The first supported edit is a Node.js-only `uuid` v4 call that can use `randomUUID` from `node:crypto`. The agent should run the project's relevant checks before and after package removal and report the measured change.
+After reviewing an audit proposal, you can ask the agent to apply a specific replacement. Supported examples include a Node.js-only `uuid` v4 call using `randomUUID` from `node:crypto` and compatible `clsx` calls using the classnames registry item. The agent should run relevant checks before and after package removal and report the measured change.
 
 ## Registry source
 

@@ -46,6 +46,8 @@ For a compatible candidate, report the registry item and reviewed revision, the 
 
 When the developer selects a specific proposal, follow [the approved replacement workflow](references/replacement-workflow.md). For native v4 UUID generation, the first supported migration is a Node.js-only no-options call to `uuid` v4. Verify the configured Node.js range, replace the call with `randomUUID` from `node:crypto`, run relevant checks, then remove `uuid` and update the lockfile only after those checks pass. Run checks again after removal and report measured changes. If the project still uses other `uuid` APIs, keep the package.
 
+For a selected `clsx` or `classnames` migration, verify that all observed calls fit the `strings/classnames` mapping. Preview the pinned registry item, including the source and license destinations, before installing it. Change imports to its named `classNames` export, run registry and consumer checks, then remove the old package only if no other uses remain and verification passes. Report the installed revision and actual direct dependency change.
+
 ## Prevent mode
 
 When the developer asks whether to add a package, describe the requested capability and inspect the project before recommending installation. Apply the same choice order: existing behavior, compatible native API, an actual reviewed registry item, a bounded local implementation, then a justified package. If the project already has a function, compare its real behavior with the requested behavior before reusing it. Unknown targets or unresolved semantics lead to `Review`.
