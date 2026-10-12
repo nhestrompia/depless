@@ -1,0 +1,8 @@
+{
+  "name": "depless-unknown-uuid-project",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "uuid": "^11.0.0"
+  }
+}

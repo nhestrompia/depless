@@ -26,7 +26,7 @@ Apply these choices in order for the behavior the project actually needs:
 
 1. `Remove` when relevant checks find no required use. Name the checks and treat it as a proposal, not proof. Be especially careful with peer, optional, plugin, and framework dependencies.
 2. `Existing` when project code already provides the required behavior without a new copy.
-3. `Native` when a platform API provides the required behavior for configured targets. Unknown target support cannot justify this action.
+3. `Native` when a platform API provides the required behavior for every configured execution target. Read [the native alternatives catalog](references/native-alternatives.md) for its narrow `uuid` and query-parameter cases. Check call-site behavior and target support; unknown target support cannot justify this action.
 4. `Registry` when a real DepLess item exists and its documented behavior fits. Do not propose a hypothetical registry item.
 5. `Custom` only for a small, bounded implementation whose maintenance cost and behavioral requirements can be explained.
 6. `Keep` when the dependency is justified or replacement cost or risk is excessive. Use `Review` when usage or compatibility evidence is insufficient to choose.
