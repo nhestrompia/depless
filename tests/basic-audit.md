@@ -12,6 +12,6 @@ The response should name that project's `package.json` and list these declaratio
 | react | >=18 | peer |
 | fsevents | ^2.3.3 | optional |
 
-Expected counts are runtime 2, development 1, peer 1, optional 1, and 4 distinct package names. The response must not claim that any package is unused or safe to remove.
+Expected counts are runtime 2, development 1, peer 1, optional 1, and 4 distinct package names. Any removal recommendation must cite usage checks beyond the manifest.
 
 Compare the fixture's file content before and after the audit. It must be identical. The agent should not run package scripts or install packages.

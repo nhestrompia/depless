@@ -1,0 +1,10 @@
+{
+  "name": "depless-recommendations-project",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "unused-example": "1.0.0",
+    "zod": "^4.0.0",
+    "maybe-adapter": "1.0.0"
+  }
+}

@@ -17,7 +17,21 @@ Use the coding agent's existing file-reading tools. An ordinary audit is read-on
 6. Name each manifest and configuration used. If a declaration map is absent, count it as zero. If a manifest cannot be read or parsed, explain the problem and stop; do not guess.
 7. For each external direct dependency, inspect project source and tests for static imports and re-exports from the package root or a package subpath. Record the file and the imported binding or API. Follow renamed bindings and inspect member access on default or namespace imports when possible; a namespace import does not mean the whole package is used. Ignore mere mentions in comments and documentation as proof of code usage.
 8. Check CommonJS `require`, dynamic `import()`, package scripts, configuration files, plugin lists, and known framework naming conventions. Resolve literal package names and package subpaths where possible. A computed name or convention that cannot be resolved is uncertain evidence; say which use needs review. Do not treat the absence of an ordinary import as proof of disuse.
-9. For each package, distinguish confirmed references, possible references, and no reference found after the relevant checks. An unresolved dynamic or configuration reference cannot support a confident unused claim. Do not infer installed versions, transitive impact, or removal safety from the usage inventory alone.
+9. For each package, distinguish confirmed references, possible references, and no reference found after the relevant checks. An unresolved dynamic or configuration reference cannot support a confident unused claim. Do not infer installed versions or transitive impact from the usage inventory alone.
+10. Classify each package using the decision policy below. An audit proposes actions but never edits the project.
+
+## Decision policy
+
+Apply these choices in order for the behavior the project actually needs:
+
+1. `Remove` when relevant checks find no required use. Name the checks and treat it as a proposal, not proof. Be especially careful with peer, optional, plugin, and framework dependencies.
+2. `Existing` when project code already provides the required behavior without a new copy.
+3. `Native` when a platform API provides the required behavior for configured targets. Unknown target support cannot justify this action.
+4. `Registry` when a real DepLess item exists and its documented behavior fits. Do not propose a hypothetical registry item.
+5. `Custom` only for a small, bounded implementation whose maintenance cost and behavioral requirements can be explained.
+6. `Keep` when the dependency is justified or replacement cost or risk is excessive. Use `Review` when usage or compatibility evidence is insufficient to choose.
+
+For each candidate, explain observed use, required behavior, runtime and API compatibility, existing tests, expected maintenance cost, and confidence. Consider license and dependency graph impact where evidence exists; do not invent savings. Prioritize high-confidence opportunities in the summary. A focused request about one package should give the same evidence and decision in more detail.
 
 Use this report shape:
 
@@ -44,7 +58,11 @@ Package | API, binding, or reference | Source location | Confirmed or uncertain
 
 Unresolved references: <what needs review, or none>
 
-No reference found is not proof that a package is safe to remove.
+Recommendations
+Package | Action | Confidence | Reason and required behavior | Compatibility and maintenance notes
+...
+
+These are proposals. No project files were changed.
 ```
 
 If the developer asks about one package, include its declaration and role in the same read-only report. If it is absent, say so.
