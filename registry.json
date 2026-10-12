@@ -74,6 +74,24 @@
           "target": "~/licenses/depless-group-by-LICENSE"
         }
       ]
+    },
+    {
+      "name": "unique",
+      "type": "registry:lib",
+      "title": "Unique by key",
+      "description": "Keep the first item for each selected key",
+      "files": [
+        {
+          "path": "registry/collections/unique/index.ts",
+          "type": "registry:file",
+          "target": "@lib/unique.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-unique-LICENSE"
+        }
+      ]
     }
   ]
 }
