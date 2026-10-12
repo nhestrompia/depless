@@ -12,7 +12,7 @@
   "requiresReview": [
     "default import to named export migration",
     "all call sites and input types",
-    "exotic object behavior",
+    "inherited enumerable object keys and other exotic object behavior",
     "clsx/lite or other package subpaths",
     "unvalidated runtime targets"
   ]

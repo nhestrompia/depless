@@ -9,3 +9,10 @@ test('common clsx inputs produce the same class string', () => {
   assert.equal(classNames(...values), clsx(...values));
   assert.equal(classNames(...values), 'button large focused selected 2');
 });
+
+test('inherited enumerable object keys are a known difference', () => {
+  const flags = Object.create({ base: true });
+  flags.active = true;
+  assert.equal(clsx(flags), 'active base');
+  assert.equal(classNames(flags), 'active');
+});

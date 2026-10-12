@@ -48,6 +48,8 @@ When the developer selects a specific proposal, follow [the approved replacement
 
 For a selected `clsx` or `classnames` migration, verify that all observed calls fit the `strings/classnames` mapping. Preview the pinned registry item, including the source and license destinations, before installing it. Change imports to its named `classNames` export, run registry and consumer checks, then remove the old package only if no other uses remain and verification passes. Report the installed revision and actual direct dependency change.
 
+If any replacement check fails or is inconclusive, follow the failure section of the workflow. Retain the original dependency, restore this attempt's changes when needed, and report the specific behavioral difference. Do not silently remove a package after failed verification.
+
 ## Prevent mode
 
 When the developer asks whether to add a package, describe the requested capability and inspect the project before recommending installation. Apply the same choice order: existing behavior, compatible native API, an actual reviewed registry item, a bounded local implementation, then a justified package. If the project already has a function, compare its real behavior with the requested behavior before reusing it. Unknown targets or unresolved semantics lead to `Review`.
