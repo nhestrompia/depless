@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "depless",
+  "homepage": "https://github.com/nhestrompia/depless",
+  "items": [
+    {
+      "name": "classnames",
+      "type": "registry:lib",
+      "title": "Class names",
+      "description": "Dependency-free conditional class name joining",
+      "files": [
+        {
+          "path": "registry/strings/classnames/index.ts",
+          "type": "registry:file",
+          "target": "@lib/classnames.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-classnames-LICENSE"
+        }
+      ]
+    }
+  ]
+}

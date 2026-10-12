@@ -6,4 +6,6 @@ This is an original DepLess implementation under the repository's MIT license. I
 
 Read or copy `index.ts` from a reviewed repository revision. The file stands alone; copying it does not require the rest of the registry. Preserve the MIT notice when redistributing it.
 
+The shadcn item installs this source as a raw `registry:file`. That preserves the exact implementation, including the space separator and license header, while targeting the consumer's configured `lib` directory.
+
 This capability overlaps with common `clsx` and `classnames` use, but it is not a claimed drop-in replacement. In particular, this entry does not promise their complete input type compatibility, export names, performance, or behavior for exotic objects. Inspect the consuming call sites before replacing either package.

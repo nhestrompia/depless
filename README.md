@@ -21,3 +21,13 @@ For prevent mode, ask, "Use DepLess to evaluate whether this project should add 
 ## Registry source
 
 The first standalone capability is [classNames](registry/strings/classnames/README.md). Review its behavior and tests before copying its source into a project. The registry source has no runtime package dependencies.
+
+The root `registry.json` lets the shadcn CLI install that source directly from this GitHub repository. After the registry commit is published, inspect and preview a pinned item before adding it:
+
+```sh
+npx shadcn@latest view nhestrompia/depless/classnames#<full-commit-sha>
+npx shadcn@latest add nhestrompia/depless/classnames#<full-commit-sha> --dry-run --diff
+npx shadcn@latest add nhestrompia/depless/classnames#<full-commit-sha>
+```
+
+The item targets the consumer's configured `lib` alias and adds a copy of the MIT license. The source is also available directly in this repository at a reviewed revision.
