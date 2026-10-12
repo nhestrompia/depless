@@ -1,0 +1,22 @@
+name: Registry validation
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npx --yes shadcn@4.20.0 build --output "$RUNNER_TEMP/depless-registry" registry.json
+      - run: npm run validate:registry
+      - run: node scripts/validate-registry.mjs "$RUNNER_TEMP/depless-registry"
+      - run: diff -r public/r "$RUNNER_TEMP/depless-registry"

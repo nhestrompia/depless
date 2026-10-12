@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "unique",
+  "title": "Unique by key",
+  "description": "Keep the first item for each selected key",
+  "files": [
+    {
+      "path": "registry/collections/unique/index.ts",
+      "content": "// Copyright (c) 2026 nhestrompia. Licensed under MIT; see the repository LICENSE.\nexport function uniqueBy<Item, Key>(\n  items: Iterable<Item>,\n  keyFor: (item: Item) => Key\n): Item[] {\n  const seen = new Set<Key>();\n  const result: Item[] = [];\n\n  for (const item of items) {\n    const key = keyFor(item);\n    if (seen.has(key)) continue;\n    seen.add(key);\n    result.push(item);\n  }\n\n  return result;\n}\n",
+      "type": "registry:file",
+      "target": "@lib/unique.ts"
+    },
+    {
+      "path": "LICENSE",
+      "content": "MIT License\n\nCopyright (c) 2026 nhestrompia\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "type": "registry:file",
+      "target": "~/licenses/depless-unique-LICENSE"
+    }
+  ],
+  "type": "registry:lib"
+}

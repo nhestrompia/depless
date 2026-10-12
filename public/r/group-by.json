@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "group-by",
+  "title": "Group by",
+  "description": "Group iterable values by a Map key",
+  "files": [
+    {
+      "path": "registry/collections/group-by/index.ts",
+      "content": "// Copyright (c) 2026 nhestrompia. Licensed under MIT; see the repository LICENSE.\nexport function groupBy<Item, Key>(\n  items: Iterable<Item>,\n  keyFor: (item: Item) => Key\n): Map<Key, Item[]> {\n  const groups = new Map<Key, Item[]>();\n\n  for (const item of items) {\n    const key = keyFor(item);\n    const group = groups.get(key);\n    if (group) group.push(item);\n    else groups.set(key, [item]);\n  }\n\n  return groups;\n}\n",
+      "type": "registry:file",
+      "target": "@lib/group-by.ts"
+    },
+    {
+      "path": "LICENSE",
+      "content": "MIT License\n\nCopyright (c) 2026 nhestrompia\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "type": "registry:file",
+      "target": "~/licenses/depless-group-by-LICENSE"
+    }
+  ],
+  "type": "registry:lib"
+}

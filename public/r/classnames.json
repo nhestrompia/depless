@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "classnames",
+  "title": "Class names",
+  "description": "Dependency-free conditional class name joining",
+  "files": [
+    {
+      "path": "registry/strings/classnames/index.ts",
+      "content": "// Copyright (c) 2026 nhestrompia. Licensed under MIT; see the repository LICENSE.\nexport type ClassValue =\n  | string\n  | number\n  | boolean\n  | null\n  | undefined\n  | readonly ClassValue[]\n  | Readonly<Record<string, unknown>>;\n\nexport function classNames(...values: ClassValue[]): string {\n  const classes: string[] = [];\n\n  function append(value: ClassValue): void {\n    if (!value) return;\n\n    if (typeof value === 'string' || typeof value === 'number') {\n      classes.push(String(value));\n      return;\n    }\n\n    if (Array.isArray(value)) {\n      for (const nested of value) append(nested);\n      return;\n    }\n\n    if (typeof value === 'object') {\n      for (const [name, enabled] of Object.entries(value)) {\n        if (enabled) classes.push(name);\n      }\n    }\n  }\n\n  for (const value of values) append(value);\n  return classes.join(' ');\n}\n",
+      "type": "registry:file",
+      "target": "@lib/classnames.ts"
+    },
+    {
+      "path": "LICENSE",
+      "content": "MIT License\n\nCopyright (c) 2026 nhestrompia\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "type": "registry:file",
+      "target": "~/licenses/depless-classnames-LICENSE"
+    }
+  ],
+  "type": "registry:lib"
+}

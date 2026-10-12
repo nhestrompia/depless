@@ -1,0 +1,97 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "depless",
+  "homepage": "https://github.com/nhestrompia/depless",
+  "items": [
+    {
+      "name": "classnames",
+      "type": "registry:lib",
+      "title": "Class names",
+      "description": "Dependency-free conditional class name joining",
+      "files": [
+        {
+          "path": "registry/strings/classnames/index.ts",
+          "type": "registry:file",
+          "target": "@lib/classnames.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-classnames-LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "debounce",
+      "type": "registry:lib",
+      "title": "Debounce",
+      "description": "Trailing-edge debounce with cancel and flush",
+      "files": [
+        {
+          "path": "registry/timing/debounce/index.ts",
+          "type": "registry:file",
+          "target": "@lib/debounce.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-debounce-LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "throttle",
+      "type": "registry:lib",
+      "title": "Throttle",
+      "description": "Trailing-only throttle with cancel and flush",
+      "files": [
+        {
+          "path": "registry/timing/throttle/index.ts",
+          "type": "registry:file",
+          "target": "@lib/throttle.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-throttle-LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "group-by",
+      "type": "registry:lib",
+      "title": "Group by",
+      "description": "Group iterable values by a Map key",
+      "files": [
+        {
+          "path": "registry/collections/group-by/index.ts",
+          "type": "registry:file",
+          "target": "@lib/group-by.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-group-by-LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "unique",
+      "type": "registry:lib",
+      "title": "Unique by key",
+      "description": "Keep the first item for each selected key",
+      "files": [
+        {
+          "path": "registry/collections/unique/index.ts",
+          "type": "registry:file",
+          "target": "@lib/unique.ts"
+        },
+        {
+          "path": "LICENSE",
+          "type": "registry:file",
+          "target": "~/licenses/depless-unique-LICENSE"
+        }
+      ]
+    }
+  ]
+}
