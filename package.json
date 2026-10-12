@@ -1,0 +1,15 @@
+{
+  "name": "depless",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "typecheck": "tsc --noEmit",
+    "validate:registry": "node scripts/validate-registry.mjs public/r"
+  },
+  "devDependencies": {
+    "clsx": "^2.1.1",
+    "lodash": "^4.17.21",
+    "typescript": "^5.9.0"
+  }
+}

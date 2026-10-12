@@ -1,0 +1,19 @@
+{
+  "package": "clsx",
+  "api": "default",
+  "registryItem": "strings/classnames",
+  "compatibility": "partial",
+  "testedUpstreamVersion": "2.1.1",
+  "supportedOverlap": [
+    "truthy string and number arguments",
+    "nested arrays of supported values",
+    "own enumerable object keys with truthy values"
+  ],
+  "requiresReview": [
+    "default import to named export migration",
+    "all call sites and input types",
+    "inherited enumerable object keys and other exotic object behavior",
+    "clsx/lite or other package subpaths",
+    "unvalidated runtime targets"
+  ]
+}

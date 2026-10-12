@@ -1,0 +1,18 @@
+{
+  "package": "classnames",
+  "api": "default",
+  "registryItem": "strings/classnames",
+  "compatibility": "partial",
+  "supportedOverlap": [
+    "truthy string and number arguments",
+    "nested arrays of supported values",
+    "own enumerable object keys with truthy values"
+  ],
+  "requiresReview": [
+    "default import to named export migration",
+    "all call sites and input types",
+    "classnames/dedupe and other package subpaths",
+    "exotic object behavior",
+    "unvalidated runtime targets"
+  ]
+}

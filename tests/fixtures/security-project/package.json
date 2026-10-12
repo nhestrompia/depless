@@ -1,0 +1,9 @@
+{
+  "name": "depless-security-project",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@depless-fixture/app",
+  "private": true,
+  "dependencies": {
+    "@depless-fixture/lib": "workspace:*",
+    "lodash": "^4.17.21"
+  }
+}

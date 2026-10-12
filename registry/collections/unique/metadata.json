@@ -1,0 +1,12 @@
+{
+  "id": "collections/unique",
+  "version": "1.0.0",
+  "description": "Keep the first item for each selected key",
+  "language": "typescript",
+  "dependencies": [],
+  "runtimes": ["browser", "node", "bun"],
+  "validatedRuntimes": ["node"],
+  "capabilities": ["unique by selected key", "preserve first occurrence"],
+  "license": "MIT",
+  "provenance": "Original DepLess implementation; no third-party source copied"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "depless-node-uuid-project",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "uuid": "^11.0.0"
+  }
+}

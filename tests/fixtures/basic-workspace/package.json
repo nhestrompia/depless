@@ -1,0 +1,11 @@
+{
+  "name": "depless-workspace",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "typescript": "~5.9.0"
+  }
+}

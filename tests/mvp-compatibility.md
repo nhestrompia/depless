@@ -1,0 +1,12 @@
+# MVP compatibility check
+
+On October 12, 2026, the project-local `depless` skill was copied into disposable fixtures and invoked by natural-language requests in two coding agents:
+
+- Codex CLI loaded `.agents/skills/depless/SKILL.md` and audited `basic-project` in read-only mode. It reported all four distinct external packages, the five declarations across runtime, development, peer, and optional roles, unknown targets, and uncertainty from the manifest-only fixture. The fixture manifest was unchanged.
+- OpenCode loaded `.opencode/skills/depless/SKILL.md` and audited the same fixture. It reported the same counts and unknown targets without changing the manifest. It also answered a prevent-mode request in `prevent-project` by finding the existing `groupByCategory` implementation and advising against adding Lodash. No project file changed.
+
+The representative migration checks are recorded in [native UUID](native-uuid-migration.md), [classnames](classnames-migration.md), [debounce](debounce-migration.md), and [failed verification](failed-verification.md). In disposable copies, the native and registry replacements passed consumer checks before and after package removal, while the inherited-key classnames mismatch failed and retained `clsx`. These checks exercise actual manifest and lockfile changes rather than only the skill's wording.
+
+The classnames item was installed into two independent disposable applications: a generic shadcn consumer and the `classnames-migration` fixture. Both copied source files and MIT license files matched the reviewed repository files byte for byte. The generic consumer returned `a b` for a conditional class call; the migration fixture passed its application test and build. Raw source retrieval with `git show 8e385c702e80b73375f38456efb410d09461d82f:registry/strings/classnames/index.ts` matched both installed files. The tracked `public/r/classnames.json` also matches a fresh shadcn 4.20.0 build. GitHub raw retrieval at that SHA remains untested until the commit is pushed.
+
+Run `npm ci`, `npm run typecheck`, `npm test`, and `npm run validate:registry` locally. For your own projects, start with a read-only audit, review runtime targets and indirect usage, then choose one replacement and rerun that project's tests, typecheck, and build. The sample suite covers specific overlap, not broad package equivalence. Browser, Bun, Yarn, remote GitHub delivery, and more complex application conventions remain for further validation.

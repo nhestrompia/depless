@@ -1,0 +1,21 @@
+{
+  "package": "lodash",
+  "api": "debounce",
+  "registryItem": "timing/debounce",
+  "compatibility": "partial",
+  "testedUpstreamVersion": "4.17.21",
+  "supportedOverlap": [
+    "trailing invocation after the quiet period with the latest arguments",
+    "canceling a pending invocation",
+    "flushing a pending invocation and returning its result"
+  ],
+  "requiresReview": [
+    "leading calls",
+    "trailing: false",
+    "maxWait",
+    "callback this binding",
+    "return value of the debounced function",
+    "flush return value after the callback has already run",
+    "wait coercion and invalid waits"
+  ]
+}

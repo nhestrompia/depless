@@ -1,0 +1,8 @@
+lockfileVersion: '9.0'
+
+importers:
+  .:
+    dependencies:
+      uuid:
+        specifier: ^11.0.0
+        version: 11.0.0

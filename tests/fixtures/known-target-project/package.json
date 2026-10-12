@@ -1,0 +1,14 @@
+{
+  "name": "depless-known-target-project",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ],
+  "dependencies": {
+    "uuid": "^11.0.0"
+  }
+}

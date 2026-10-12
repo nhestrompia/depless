@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "debounce",
+  "title": "Debounce",
+  "description": "Trailing-edge debounce with cancel and flush",
+  "files": [
+    {
+      "path": "registry/timing/debounce/index.ts",
+      "content": "// Copyright (c) 2026 nhestrompia. Licensed under MIT; see the repository LICENSE.\nexport type Debounced<Args extends unknown[], Result> = ((...args: Args) => void) & {\n  cancel(): void;\n  flush(): Result | undefined;\n};\n\nexport function debounce<Args extends unknown[], Result>(\n  callback: (...args: Args) => Result,\n  waitMs: number\n): Debounced<Args, Result> {\n  if (!Number.isFinite(waitMs) || waitMs < 0) {\n    throw new RangeError('waitMs must be a non-negative finite number');\n  }\n\n  let timer: ReturnType<typeof setTimeout> | undefined;\n  let latestArgs: Args | undefined;\n\n  function cancel(): void {\n    if (timer !== undefined) clearTimeout(timer);\n    timer = undefined;\n    latestArgs = undefined;\n  }\n\n  function flush(): Result | undefined {\n    if (timer === undefined || latestArgs === undefined) return undefined;\n    const args = latestArgs;\n    cancel();\n    return callback(...args);\n  }\n\n  function delayed(...args: Args): void {\n    if (timer !== undefined) clearTimeout(timer);\n    latestArgs = args;\n    timer = setTimeout(() => {\n      flush();\n    }, waitMs);\n  }\n\n  return Object.assign(delayed, { cancel, flush });\n}\n",
+      "type": "registry:file",
+      "target": "@lib/debounce.ts"
+    },
+    {
+      "path": "LICENSE",
+      "content": "MIT License\n\nCopyright (c) 2026 nhestrompia\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "type": "registry:file",
+      "target": "~/licenses/depless-debounce-LICENSE"
+    }
+  ],
+  "type": "registry:lib"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "collections/group-by",
+  "version": "1.0.0",
+  "description": "Group iterable values into a Map by a selected key",
+  "language": "typescript",
+  "dependencies": [],
+  "runtimes": ["browser", "node", "bun"],
+  "validatedRuntimes": ["node"],
+  "capabilities": ["group iterable values", "preserve key identity"],
+  "license": "MIT",
+  "provenance": "Original DepLess implementation; no third-party source copied"
+}

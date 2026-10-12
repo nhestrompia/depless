@@ -1,0 +1,8 @@
+{
+  "name": "depless-classnames-dedupe-project",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "classnames": "^2.5.1"
+  }
+}

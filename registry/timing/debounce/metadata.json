@@ -1,0 +1,12 @@
+{
+  "id": "timing/debounce",
+  "version": "1.0.0",
+  "description": "Trailing-edge debounce with cancel and flush",
+  "language": "typescript",
+  "dependencies": [],
+  "runtimes": ["browser", "node", "bun"],
+  "validatedRuntimes": ["node"],
+  "capabilities": ["debounce", "cancel", "flush"],
+  "license": "MIT",
+  "provenance": "Original DepLess implementation; no third-party source copied"
+}

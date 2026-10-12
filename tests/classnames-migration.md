@@ -1,0 +1,7 @@
+# Classnames migration acceptance check
+
+Copy `tests/fixtures/classnames-migration` to a disposable directory and install its locked packages. Confirm that its test and build pass. Ask DepLess to apply the compatible `strings/classnames` proposal after reviewing the planned source, license, import, manifest, and lockfile changes.
+
+Preview the pinned shadcn item and inspect its diff before installing. The source should land under the consumer's configured `lib` alias, with a separate MIT license file. Change the import to the named `classNames` export and run the registry public tests, the focused `clsx` differential test, and the consumer's test and build. Only after those checks pass should the agent remove `clsx` and update the lockfile. Run the consumer checks again and report the actual direct dependency count, source revision, files changed, checks, and remaining limits. The checked-in fixture should remain unchanged.
+
+In the local disposable check on October 12, 2026, a registry build from revision `02a0a79c149bdb1152df4d9c0090495e28573d52` was served locally. The shadcn preview listed the source and license, and installation copied both byte for byte. The consumer test and build passed before the edit, after the source change, and after `npm uninstall clsx`. Direct dependencies changed from 1 to 0, and the lockfile no longer contained `clsx`. A GitHub-pinned install still needs a published revision.

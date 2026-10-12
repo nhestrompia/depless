@@ -1,0 +1,8 @@
+{
+  "name": "depless-classnames-discovery-project",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "clsx": "^2.1.1"
+  }
+}
