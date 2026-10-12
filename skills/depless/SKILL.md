@@ -42,6 +42,10 @@ When the project uses Lodash debounce, read `mappings/lodash-debounce.json` and 
 
 For a compatible candidate, report the registry item and reviewed revision, the observed call sites, compatibility gaps, and the files the registry would add. Resolve `@lib/` against the consumer's shadcn configuration when available; otherwise state that the destination needs confirmation. Describe import changes and available checks before any edit. An ordinary audit never installs the item.
 
+## Replace mode
+
+When the developer selects a specific proposal, follow [the approved replacement workflow](references/replacement-workflow.md). For native v4 UUID generation, the first supported migration is a Node.js-only no-options call to `uuid` v4. Verify the configured Node.js range, replace the call with `randomUUID` from `node:crypto`, run relevant checks, then remove `uuid` and update the lockfile only after those checks pass. Run checks again after removal and report measured changes. If the project still uses other `uuid` APIs, keep the package.
+
 ## Prevent mode
 
 When the developer asks whether to add a package, describe the requested capability and inspect the project before recommending installation. Apply the same choice order: existing behavior, compatible native API, an actual reviewed registry item, a bounded local implementation, then a justified package. If the project already has a function, compare its real behavior with the requested behavior before reusing it. Unknown targets or unresolved semantics lead to `Review`.

@@ -18,6 +18,8 @@ Ask your agent, "Use DepLess to audit this project's dependencies." It will read
 
 For prevent mode, ask, "Use DepLess to evaluate whether this project should add `<package>` for `<capability>`." The agent will compare alternatives and return advice without installing anything.
 
+After reviewing an audit proposal, you can ask the agent to apply a specific replacement. The first supported edit is a Node.js-only `uuid` v4 call that can use `randomUUID` from `node:crypto`. The agent should run the project's relevant checks before and after package removal and report the measured change.
+
 ## Registry source
 
 The registry currently has [classNames](registry/strings/classnames/README.md), [debounce](registry/timing/debounce/README.md), [throttle](registry/timing/throttle/README.md), [groupBy](registry/collections/group-by/README.md), and [uniqueBy](registry/collections/unique/README.md). Review each item's behavior and tests before copying source into a project. Registry source has no runtime package dependencies.
