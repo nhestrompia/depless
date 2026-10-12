@@ -28,11 +28,17 @@ Apply these choices in order for the behavior the project actually needs:
 1. `Remove` when relevant checks find no required use. Name the checks and treat it as a proposal, not proof. Be especially careful with peer, optional, plugin, and framework dependencies.
 2. `Existing` when project code already provides the required behavior without a new copy.
 3. `Native` when a platform API provides the required behavior for every configured execution target. Read [the native alternatives catalog](references/native-alternatives.md) for its narrow `uuid` and query-parameter cases. Check call-site behavior and target support; unknown target support cannot justify this action.
-4. `Registry` when a real DepLess item exists and its documented behavior fits. Do not propose a hypothetical registry item.
+4. `Registry` when a real DepLess item exists and its documented behavior fits. Do not propose a hypothetical registry item. Follow the discovery procedure below.
 5. `Custom` only for a small, bounded, non-security-sensitive implementation whose maintenance cost and behavioral requirements can be explained.
 6. `Keep` when the dependency is justified or replacement cost or risk is excessive. Use `Review` when usage or compatibility evidence is insufficient to choose.
 
 For each candidate, explain observed use, required behavior, runtime and API compatibility, existing tests, expected maintenance cost, and confidence. Consider license and dependency graph impact where evidence exists; do not invent savings. Prioritize high-confidence opportunities in the summary. A focused request about one package should give the same evidence and decision in more detail.
+
+## Registry discovery
+
+When the project uses `clsx` or `classnames`, inspect the current DepLess repository's package mapping, item metadata, README, source, tests, and root registry definition. The source repository is `https://github.com/nhestrompia/depless`; a local checkout is also suitable. Match the observed import path and call behavior to the mapping. The `strings/classnames` item covers common conditional class joining, but its named export and `classnames/dedupe` behavior differ. Do not call it a drop-in replacement. If the mapping, source, or runtime support cannot be inspected, use `Review` rather than assuming compatibility.
+
+For a compatible candidate, report the registry item and reviewed revision, the observed call sites, compatibility gaps, and the files the registry would add. Resolve `@lib/` against the consumer's shadcn configuration when available; otherwise state that the destination needs confirmation. Describe import changes and available checks before any edit. An ordinary audit never installs the item.
 
 ## Prevent mode
 
