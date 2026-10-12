@@ -6,4 +6,6 @@
 
 This entry does not implement leading calls, `maxWait`, or Lodash's return-value behavior. It is not a drop-in replacement for `lodash/debounce`. Check those behaviors in the consuming project before migrating.
 
+The [Lodash mapping](../../../mappings/lodash-debounce.json) records the tested overlap and all known review points. Differential tests run against Lodash 4.17.21 as a development dependency; Lodash is not part of the installed registry source.
+
 This is original DepLess source under the repository's MIT license and has no runtime package dependencies. Node.js behavior is tested here with controlled timers. It is intended for modern browsers and Bun as well, but those runtimes have not yet been run in CI. The source file stands alone; copy it from a reviewed revision and preserve the license notice.
