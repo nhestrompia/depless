@@ -15,7 +15,8 @@ Use the coding agent's existing file-reading tools. An ordinary audit is read-on
 4. Report configured language and runtime targets only when project evidence supports them. A `tsconfig.json` or `jsconfig.json` establishes a TypeScript or JavaScript configuration. Read Node.js or Bun constraints from declared `engines` fields or equivalent project configuration. Read browser targets from `browserslist` configuration when present. A lockfile or the agent's own runtime version does not establish the project's runtime compatibility. Mark missing targets `unknown`.
 5. Report every declared direct package with its exact declared version or range, role, and declaring workspace. A package declared in more than one map has more than one role. Distinguish references to named packages in the workspace from external package dependencies; a `workspace:` range is strong evidence of an internal reference. Flag ambiguous resolution rather than treating it as external or internal with certainty. Count declarations by role for each workspace and count distinct external package names separately.
 6. Name each manifest and configuration used. If a declaration map is absent, count it as zero. If a manifest cannot be read or parsed, explain the problem and stop; do not guess.
-7. Do not infer installed versions, actual usage, transitive impact, or removal safety from the manifest alone. State that those questions need further analysis.
+7. For each external direct dependency, inspect project source and tests for static imports and re-exports from the package root or a package subpath. Record the file and the imported binding or API. Follow renamed bindings and inspect member access on default or namespace imports when possible; a namespace import does not mean the whole package is used. Ignore mere mentions in comments and documentation as proof of code usage.
+8. If no static import is found, report `No static import found; further checks needed`. Do not call the package unused or safe to remove yet. Do not infer installed versions, transitive impact, or removal safety from this first usage pass.
 
 Use this report shape:
 
@@ -36,7 +37,11 @@ Workspace | Package | Declared version | Role | External or internal
 Counts by workspace: runtime <n>, development <n>, peer <n>, optional <n>
 Distinct external direct packages: <n>
 
-This inventory does not establish whether any package is unused or safe to remove.
+Static usage evidence
+Package | Imported API or binding | Source location
+...
+
+No static import found is not proof that a package is unused. This audit does not establish whether any package is safe to remove.
 ```
 
 If the developer asks about one package, include its declaration and role in the same read-only report. If it is absent, say so.

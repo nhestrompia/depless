@@ -1,6 +1,6 @@
 # DepLess
 
-DepLess is an agent skill for reviewing JavaScript and TypeScript dependencies. The current audit gives a read-only inventory of direct packages in a project or basic workspace and reports configured project targets. It does not yet analyze usage or suggest removals.
+DepLess is an agent skill for reviewing JavaScript and TypeScript dependencies. The current audit gives a read-only inventory of direct packages in a project or basic workspace, reports configured targets, and shows static import evidence. It does not yet suggest removals.
 
 ## Install
 
