@@ -1,0 +1,7 @@
+{
+  "name": "@depless-fixture/lib",
+  "private": true,
+  "dependencies": {
+    "nanoid": "^5.0.0"
+  }
+}
