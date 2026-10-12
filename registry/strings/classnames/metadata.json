@@ -1,0 +1,12 @@
+{
+  "id": "strings/classnames",
+  "version": "1.0.0",
+  "description": "Join conditional class names without runtime dependencies",
+  "language": "typescript",
+  "dependencies": [],
+  "runtimes": ["browser", "node", "bun"],
+  "validatedRuntimes": ["node"],
+  "capabilities": ["conditional class names", "nested class lists"],
+  "license": "MIT",
+  "provenance": "Original DepLess implementation; no third-party source copied"
+}
